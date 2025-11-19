@@ -165,8 +165,11 @@ const captureImage = async (camera = false) => {
 
 2. AI Analysis (analyze+api.ts)
 ```typescript
-const model = genAi.getGenerativeModel({ model: 'gemini-2.0-flash' });
-const result = await model.generateContent([prompt, image]);
+const { object } = await generateObject({
+  model: google('gemini-2.5-flash'),
+  schema: foodAnalysisSchema,
+  messages: [...]
+});
 ```
 
 3. Results Display (result.tsx)
